@@ -8,12 +8,18 @@
 
 import UIKit
 import Mapbox
+import Firebase
+import FirebaseDatabase
 
 class MainViewController: UIViewController,
                       MGLMapViewDelegate {
     
+    var ref: FIRDatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ref = FIRDatabase.database().reference()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
