@@ -51,6 +51,8 @@
 		5BE0A13F1D059423004DC56C /* lookbackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lookbackUITests.swift; sourceTree = "<group>"; };
 		5BE0A1411D059423004DC56C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BE214A41D0AE2E60087EEBC /* example.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = example.geojson; sourceTree = "<group>"; };
+		5BE6E69F1D0C2384002BB2DF /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		5BE6E6A01D0C252D002BB2DF /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		793BF4F4C113F4A4ACEB36C6 /* Pods-lookback.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lookback.release.xcconfig"; path = "Pods/Target Support Files/Pods-lookback/Pods-lookback.release.xcconfig"; sourceTree = "<group>"; };
 		AA8D1FDAA0C1A57CDF85D417 /* Pods-lookback.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lookback.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lookback/Pods-lookback.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +124,8 @@
 				5BE0A1261D059423004DC56C /* Assets.xcassets */,
 				5BE0A1281D059423004DC56C /* LaunchScreen.storyboard */,
 				5BE0A12B1D059423004DC56C /* Info.plist */,
+				5BE6E69F1D0C2384002BB2DF /* Debug.xcconfig */,
+				5BE6E6A01D0C252D002BB2DF /* Release.xcconfig */,
 			);
 			path = lookback;
 			sourceTree = "<group>";
@@ -476,7 +480,7 @@
 		};
 		5BE0A1451D059423004DC56C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA8D1FDAA0C1A57CDF85D417 /* Pods-lookback.debug.xcconfig */;
+			baseConfigurationReference = 5BE6E69F1D0C2384002BB2DF /* Debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = lookback/Info.plist;
@@ -488,7 +492,7 @@
 		};
 		5BE0A1461D059423004DC56C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 793BF4F4C113F4A4ACEB36C6 /* Pods-lookback.release.xcconfig */;
+			baseConfigurationReference = 5BE6E6A01D0C252D002BB2DF /* Release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = lookback/Info.plist;
