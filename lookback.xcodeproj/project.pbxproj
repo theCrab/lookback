@@ -9,14 +9,13 @@
 /* Begin PBXBuildFile section */
 		595D30D51AC8E6116CC71B3F /* Pods_lookback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5101724563439B8502288CAE /* Pods_lookback.framework */; };
 		5BE0A1201D059422004DC56C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE0A11F1D059422004DC56C /* AppDelegate.swift */; };
-		5BE0A1221D059422004DC56C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE0A1211D059422004DC56C /* ViewController.swift */; };
+		5BE0A1221D059422004DC56C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE0A1211D059422004DC56C /* MainViewController.swift */; };
 		5BE0A1251D059422004DC56C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BE0A1231D059422004DC56C /* Main.storyboard */; };
 		5BE0A1271D059423004DC56C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BE0A1261D059423004DC56C /* Assets.xcassets */; };
 		5BE0A12A1D059423004DC56C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BE0A1281D059423004DC56C /* LaunchScreen.storyboard */; };
 		5BE0A1351D059423004DC56C /* lookbackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE0A1341D059423004DC56C /* lookbackTests.swift */; };
 		5BE0A1401D059423004DC56C /* lookbackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE0A13F1D059423004DC56C /* lookbackUITests.swift */; };
 		5BE214A51D0AE2E60087EEBC /* example.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 5BE214A41D0AE2E60087EEBC /* example.geojson */; };
-		5BE214A71D0AE7700087EEBC /* Coordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE214A61D0AE7700087EEBC /* Coordinate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +39,7 @@
 		5101724563439B8502288CAE /* Pods_lookback.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lookback.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BE0A11C1D059422004DC56C /* lookback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lookback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BE0A11F1D059422004DC56C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5BE0A1211D059422004DC56C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5BE0A1211D059422004DC56C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5BE0A1241D059422004DC56C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5BE0A1261D059423004DC56C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BE0A1291D059423004DC56C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -52,7 +51,6 @@
 		5BE0A13F1D059423004DC56C /* lookbackUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lookbackUITests.swift; sourceTree = "<group>"; };
 		5BE0A1411D059423004DC56C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BE214A41D0AE2E60087EEBC /* example.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = example.geojson; sourceTree = "<group>"; };
-		5BE214A61D0AE7700087EEBC /* Coordinate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinate.swift; sourceTree = "<group>"; };
 		793BF4F4C113F4A4ACEB36C6 /* Pods-lookback.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lookback.release.xcconfig"; path = "Pods/Target Support Files/Pods-lookback/Pods-lookback.release.xcconfig"; sourceTree = "<group>"; };
 		AA8D1FDAA0C1A57CDF85D417 /* Pods-lookback.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lookback.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lookback/Pods-lookback.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,8 +117,7 @@
 			children = (
 				5BE0A11F1D059422004DC56C /* AppDelegate.swift */,
 				5BE214A41D0AE2E60087EEBC /* example.geojson */,
-				5BE0A1211D059422004DC56C /* ViewController.swift */,
-				5BE214A61D0AE7700087EEBC /* Coordinate.swift */,
+				5BE0A1211D059422004DC56C /* MainViewController.swift */,
 				5BE0A1231D059422004DC56C /* Main.storyboard */,
 				5BE0A1261D059423004DC56C /* Assets.xcassets */,
 				5BE0A1281D059423004DC56C /* LaunchScreen.storyboard */,
@@ -338,9 +335,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BE0A1221D059422004DC56C /* ViewController.swift in Sources */,
+				5BE0A1221D059422004DC56C /* MainViewController.swift in Sources */,
 				5BE0A1201D059422004DC56C /* AppDelegate.swift in Sources */,
-				5BE214A71D0AE7700087EEBC /* Coordinate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
