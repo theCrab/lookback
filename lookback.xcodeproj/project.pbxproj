@@ -16,6 +16,7 @@
 		5BE0A1351D059423004DC56C /* lookbackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE0A1341D059423004DC56C /* lookbackTests.swift */; };
 		5BE0A1401D059423004DC56C /* lookbackUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE0A13F1D059423004DC56C /* lookbackUITests.swift */; };
 		5BE214A51D0AE2E60087EEBC /* example.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 5BE214A41D0AE2E60087EEBC /* example.geojson */; };
+		5BFF4FD01D0C321400B88F64 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5BFF4FCF1D0C321400B88F64 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		5BE214A41D0AE2E60087EEBC /* example.geojson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = example.geojson; sourceTree = "<group>"; };
 		5BE6E69F1D0C2384002BB2DF /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		5BE6E6A01D0C252D002BB2DF /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		5BFF4FCF1D0C321400B88F64 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		793BF4F4C113F4A4ACEB36C6 /* Pods-lookback.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lookback.release.xcconfig"; path = "Pods/Target Support Files/Pods-lookback/Pods-lookback.release.xcconfig"; sourceTree = "<group>"; };
 		AA8D1FDAA0C1A57CDF85D417 /* Pods-lookback.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lookback.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lookback/Pods-lookback.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +126,7 @@
 				5BE0A1261D059423004DC56C /* Assets.xcassets */,
 				5BE0A1281D059423004DC56C /* LaunchScreen.storyboard */,
 				5BE0A12B1D059423004DC56C /* Info.plist */,
+				5BFF4FCF1D0C321400B88F64 /* GoogleService-Info.plist */,
 				5BE6E69F1D0C2384002BB2DF /* Debug.xcconfig */,
 				5BE6E6A01D0C252D002BB2DF /* Release.xcconfig */,
 			);
@@ -265,6 +268,7 @@
 			files = (
 				5BE0A12A1D059423004DC56C /* LaunchScreen.storyboard in Resources */,
 				5BE0A1271D059423004DC56C /* Assets.xcassets in Resources */,
+				5BFF4FD01D0C321400B88F64 /* GoogleService-Info.plist in Resources */,
 				5BE214A51D0AE2E60087EEBC /* example.geojson in Resources */,
 				5BE0A1251D059422004DC56C /* Main.storyboard in Resources */,
 			);
