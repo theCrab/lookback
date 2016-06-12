@@ -39,7 +39,7 @@ class MainViewController: UIViewController,
     }
     
     func updateLocationOnMapView(location: CLLocation) {
-        mapView.setCenterCoordinate(location.coordinate, zoomLevel: 15, direction: 0, animated: true)
+        mapView.setCenterCoordinate(location.coordinate, animated: true)
     }
 }
 
