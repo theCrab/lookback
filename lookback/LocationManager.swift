@@ -23,6 +23,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         manager = CLLocationManager()
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.distanceFilter = 10
     }
     
     func start() {
