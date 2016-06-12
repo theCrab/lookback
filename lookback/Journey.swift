@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 
 class Journey: Object {
-    
+    dynamic var id = NSUUID().UUIDString
     dynamic var name = ""
     let coordinates = List<Coordinate>()
     

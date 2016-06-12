@@ -43,7 +43,7 @@ class JourneysViewController: UITableViewController {
         })
         
         alertController.addTextFieldWithConfigurationHandler({ (textField: UITextField!) -> Void in
-            textField.placeholder = "Enter Journey Name"
+            textField.placeholder = "My Journey Name"
         })
         
         alertController.addAction(cancelAction)
@@ -58,11 +58,13 @@ class JourneysViewController: UITableViewController {
 
     // MARK: - Table view data source
     
-    func createNewJourney(title: String) {
+    func createNewJourney(name: String) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             let realm = try! Realm()
             
-            let journey = Journey(value: [title, List<Coordinate>()])
+            let journey = Journey()
+            journey.name = name
+            
             try! realm.write() { realm.add(journey) }
             
             dispatch_async(dispatch_get_main_queue(), {
@@ -87,7 +89,7 @@ class JourneysViewController: UITableViewController {
         let journey = journeys![indexPath.row] as Journey
         
         cell.textLabel?.text = journey.name
-        cell.detailTextLabel?.text = "\(journey.coordinates.count) Coordinates"
+        cell.detailTextLabel?.text = "\(journey.coordinates.count) Coordinates (\(journey.id))"
         // Configure the cell...
 
         return cell
