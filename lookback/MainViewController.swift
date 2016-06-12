@@ -15,6 +15,9 @@ class MainViewController: UIViewController,
     
     @IBOutlet weak var mapView: MGLMapView!
     
+    let defaults = NSUserDefaults.standardUserDefaults()
+    var journey: Journey?
+    
     var coordinates = [CLLocationCoordinate2D]()
     var polylines = [MGLPolyline]()
     
@@ -41,7 +44,7 @@ class MainViewController: UIViewController,
     }
     
     @IBAction func chooseCurrentJourney(segue: UIStoryboardSegue) {
-        // print((segue.sourceViewController as! JourneysViewController).selectedJourney)
+        journey = Journey.findById(defaults.objectForKey("currentJourneyId") as! String)
     }
     
     func mapViewDidFinishLoadingMap(mapView: MGLMapView) {
