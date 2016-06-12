@@ -42,7 +42,17 @@
                             <constraint firstItem="Md9-wh-L5H" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sen-0f-SO2"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Lookback" id="27U-2C-SP2"/>
+                    <navigationItem key="navigationItem" title="Lookback" id="27U-2C-SP2">
+                        <barButtonItem key="leftBarButtonItem" title="Journeys" id="mKH-aK-dGt">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="Fgi-1J-9zk" kind="presentation" id="SbV-7R-h1C"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="tqd-2v-Cbx">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="mapView" destination="Md9-wh-L5H" id="rER-wG-vtW"/>
@@ -52,9 +62,49 @@
             </objects>
             <point key="canvasLocation" x="1137" y="399"/>
         </scene>
+        <!--Journeys-->
+        <scene sceneID="XzP-bv-dYr">
+            <objects>
+                <tableViewController id="t1I-o8-CA7" customClass="JourneysViewController" customModule="lookback" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="PF6-XC-w1x">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="gDP-P4-e71">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gDP-P4-e71" id="lyv-jO-aQq">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="t1I-o8-CA7" id="kGl-gL-JlV"/>
+                            <outlet property="delegate" destination="t1I-o8-CA7" id="711-Wc-stT"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Journeys" id="EjD-9e-Qed">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Osy-8k-SE8">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="dismissCurrentView" destination="t1I-o8-CA7" id="zpG-Ng-ZyS"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="EI0-X5-jGE">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kBU-BN-0Sc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2811" y="904"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="gdX-Te-YvM">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tID-5X-6PU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f2b-kx-hCd" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -63,7 +113,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.10196078431372549" green="0.10196078431372549" blue="0.10196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <color key="textColor" red="0.9546654840205373" green="0.95191251661290777" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -71,9 +121,30 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="YAa-CO-xxn"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tID-5X-6PU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="396" y="1059"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="imh-UO-u9Y">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fgi-1J-9zk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PBb-3j-U8K">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.1019607843" green="0.1019607843" blue="0.1019607843" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="t1I-o8-CA7" kind="relationship" relationship="rootViewController" id="KXL-rI-S2B"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gub-1a-01u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1999" y="904"/>
         </scene>
     </scenes>
 </document>

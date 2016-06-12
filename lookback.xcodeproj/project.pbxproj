@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		595D30D51AC8E6116CC71B3F /* Pods_lookback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5101724563439B8502288CAE /* Pods_lookback.framework */; };
 		5B70BCA31D0CE3DD00328110 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B70BCA21D0CE3DD00328110 /* LocationManager.swift */; };
+		5B8638F81D0D2AA4000F3923 /* JourneysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B8638F71D0D2AA4000F3923 /* JourneysViewController.swift */; };
 		5BE0A1201D059422004DC56C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE0A11F1D059422004DC56C /* AppDelegate.swift */; };
 		5BE0A1221D059422004DC56C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE0A1211D059422004DC56C /* MainViewController.swift */; };
 		5BE0A1251D059422004DC56C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BE0A1231D059422004DC56C /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		5101724563439B8502288CAE /* Pods_lookback.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lookback.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B70BCA21D0CE3DD00328110 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		5B8638F71D0D2AA4000F3923 /* JourneysViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JourneysViewController.swift; sourceTree = "<group>"; };
 		5BE0A11C1D059422004DC56C /* lookback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lookback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BE0A11F1D059422004DC56C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BE0A1211D059422004DC56C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				5BE0A12B1D059423004DC56C /* Info.plist */,
 				5BE6E69F1D0C2384002BB2DF /* Debug.xcconfig */,
 				5BE6E6A01D0C252D002BB2DF /* Release.xcconfig */,
+				5B8638F71D0D2AA4000F3923 /* JourneysViewController.swift */,
 			);
 			path = lookback;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BE0A1221D059422004DC56C /* MainViewController.swift in Sources */,
+				5B8638F81D0D2AA4000F3923 /* JourneysViewController.swift in Sources */,
 				5BE0A1201D059422004DC56C /* AppDelegate.swift in Sources */,
 				5B70BCA31D0CE3DD00328110 /* LocationManager.swift in Sources */,
 			);
