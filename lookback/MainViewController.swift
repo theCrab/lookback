@@ -8,13 +8,16 @@
 
 import UIKit
 import Mapbox
+import MapKit
 
 class MainViewController: UIViewController,
                       MGLMapViewDelegate {
     
     @IBOutlet weak var mapView: MGLMapView!
     var coordinates = [CLLocationCoordinate2D]()
+    var polylines = [MGLPolyline]()
     
+    private var startedInitialCamerawork: Bool = false
     private var finishedInitialCamerawork: Bool = false
     
     override func viewDidLoad() {
@@ -52,17 +55,31 @@ class MainViewController: UIViewController,
     
     func processLocation(location: CLLocation) {
         performInitialCamerawork(location.coordinate)
+        centerCurrentLocation(location.coordinate)
+        
         coordinates.append(location.coordinate)
         mapView.addAnnotation(currentPolyline())
+    func centerCurrentLocation(currentCoordinate: CLLocationCoordinate2D) {
+        guard finishedInitialCamerawork == true else { return }
+        
+        let previousPoint = MKMapPointForCoordinate(mapView.centerCoordinate)
+        let currentPoint = MKMapPointForCoordinate(currentCoordinate)
+        
+        guard MKMetersBetweenMapPoints(previousPoint, currentPoint) > 100 else { return }
+        
+        mapView.setCenterCoordinate(currentCoordinate, animated: true)
     }
     
     func performInitialCamerawork(coordinate: CLLocationCoordinate2D) {
-        guard finishedInitialCamerawork == false else { return }
+        guard startedInitialCamerawork == false else { return }
         
-        let camera = MGLMapCamera(lookingAtCenterCoordinate: coordinate, fromDistance: 2000, pitch: 15, heading: 0)
-        mapView.flyToCamera(camera, withDuration: 15, completionHandler: { NSLog("Finished camera work") })
+        let camera = MGLMapCamera(lookingAtCenterCoordinate: coordinate, fromDistance: 4000, pitch: 15, heading: 0)
+        mapView.flyToCamera(camera, withDuration: 15, completionHandler: {
+            NSLog("Finished camera work")
+            self.finishedInitialCamerawork = true
+        })
         
-        finishedInitialCamerawork = true
+        startedInitialCamerawork = true
     }
 }
 
