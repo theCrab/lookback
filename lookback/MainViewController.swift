@@ -12,6 +12,8 @@ import Mapbox
 class MainViewController: UIViewController,
                       MGLMapViewDelegate {
     
+    @IBOutlet weak var mapView: MGLMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
