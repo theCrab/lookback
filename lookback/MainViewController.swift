@@ -14,6 +14,8 @@ class MainViewController: UIViewController,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        LocationManager.sharedInstance.start()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
