@@ -13,11 +13,15 @@ class MainViewController: UIViewController,
                       MGLMapViewDelegate {
     
     @IBOutlet weak var mapView: MGLMapView!
+    var camera: MGLMapCamera?
+    var finishedInitialCamerawork: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         mapView.showsUserLocation = true
+        mapView.delegate = self
+        
         self.startUpdatingLocations()
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -39,7 +43,15 @@ class MainViewController: UIViewController,
     }
     
     func updateLocationOnMapView(location: CLLocation) {
-        mapView.setCenterCoordinate(location.coordinate, animated: true)
+        guard finishedInitialCamerawork == false else {
+            NSLog("Prevented location update after initial camera work")
+            return
+        }
+        
+        camera = MGLMapCamera(lookingAtCenterCoordinate: location.coordinate, fromDistance: 2000, pitch: 15, heading: 0)
+        mapView.flyToCamera(camera!, withDuration: 15, completionHandler: { NSLog("Finished camera work") })
+        
+        finishedInitialCamerawork = true
     }
 }
 
