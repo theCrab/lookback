@@ -37,6 +37,13 @@ class MainViewController: UIViewController,
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func cancelChoosingJourney(segue: UIStoryboardSegue) {
+    }
+    
+    @IBAction func chooseCurrentJourney(segue: UIStoryboardSegue) {
+        // print((segue.sourceViewController as! JourneysViewController).selectedJourney)
+    }
+    
     func mapViewDidFinishLoadingMap(mapView: MGLMapView) {
     }
     
