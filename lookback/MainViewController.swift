@@ -83,7 +83,7 @@ class MainViewController: UIViewController,
     func performInitialCamerawork(coordinate: CLLocationCoordinate2D) {
         guard startedInitialCamerawork == false else { return }
         
-        let camera = MGLMapCamera(lookingAtCenterCoordinate: coordinate, fromDistance: 4000, pitch: 15, heading: 0)
+        let camera = MGLMapCamera(lookingAtCenterCoordinate: coordinate, fromDistance: 6000, pitch: 30, heading: 20)
         mapView.flyToCamera(camera, withDuration: 15, completionHandler: {
             NSLog("Finished camera work")
             self.finishedInitialCamerawork = true
