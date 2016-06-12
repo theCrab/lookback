@@ -13,8 +13,7 @@ class MainViewController: UIViewController,
                       MGLMapViewDelegate {
     
     @IBOutlet weak var mapView: MGLMapView!
-    var camera: MGLMapCamera?
-    var finishedInitialCamerawork: Bool = false
+    private var finishedInitialCamerawork: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,25 +30,29 @@ class MainViewController: UIViewController,
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func mapViewDidFinishLoadingMap(mapView: MGLMapView) {
+    }
 
     func startUpdatingLocations() {
         LocationManager.sharedInstance.completionHandler = { (location, error) in
             guard error == nil else { return }
-            self.updateLocationOnMapView(location!)
+            self.processLocation(location!)
             
         }
         
         LocationManager.sharedInstance.start()
     }
     
-    func updateLocationOnMapView(location: CLLocation) {
-        guard finishedInitialCamerawork == false else {
-            NSLog("Prevented location update after initial camera work")
-            return
-        }
+    func processLocation(location: CLLocation) {
+        performInitialCamerawork(location.coordinate)
+    }
+    
+    func performInitialCamerawork(coordinate: CLLocationCoordinate2D) {
+        guard finishedInitialCamerawork == false else { return }
         
-        camera = MGLMapCamera(lookingAtCenterCoordinate: location.coordinate, fromDistance: 2000, pitch: 15, heading: 0)
-        mapView.flyToCamera(camera!, withDuration: 15, completionHandler: { NSLog("Finished camera work") })
+        let camera = MGLMapCamera(lookingAtCenterCoordinate: coordinate, fromDistance: 2000, pitch: 15, heading: 0)
+        mapView.flyToCamera(camera, withDuration: 15, completionHandler: { NSLog("Finished camera work") })
         
         finishedInitialCamerawork = true
     }
