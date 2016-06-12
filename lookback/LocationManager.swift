@@ -23,14 +23,14 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     }
     
     func start() {
-        authorizationValidate(CLLocationManager.authorizationStatus())
+        validateAuthorization(CLLocationManager.authorizationStatus())
     }
     
     func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
-        authorizationValidate(status)
+        validateAuthorization(status)
     }
     
-    func authorizationValidate(status: CLAuthorizationStatus) {
+    func validateAuthorization(status: CLAuthorizationStatus) {
         switch status {
         case .AuthorizedAlways:
             authorizationSuccess()
