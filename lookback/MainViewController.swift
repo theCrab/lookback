@@ -13,6 +13,8 @@ class MainViewController: UIViewController,
                       MGLMapViewDelegate {
     
     @IBOutlet weak var mapView: MGLMapView!
+    var coordinates = [CLLocationCoordinate2D]()
+    
     private var finishedInitialCamerawork: Bool = false
     
     override func viewDidLoad() {
@@ -33,6 +35,10 @@ class MainViewController: UIViewController,
     
     func mapViewDidFinishLoadingMap(mapView: MGLMapView) {
     }
+    
+    func currentPolyline() -> MGLPolyline {
+        return MGLPolyline(coordinates: &coordinates, count: UInt(coordinates.count))
+    }
 
     func startUpdatingLocations() {
         LocationManager.sharedInstance.completionHandler = { (location, error) in
@@ -46,6 +52,8 @@ class MainViewController: UIViewController,
     
     func processLocation(location: CLLocation) {
         performInitialCamerawork(location.coordinate)
+        coordinates.append(location.coordinate)
+        mapView.addAnnotation(currentPolyline())
     }
     
     func performInitialCamerawork(coordinate: CLLocationCoordinate2D) {
