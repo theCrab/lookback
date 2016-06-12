@@ -52,7 +52,7 @@ class JourneysViewController: UITableViewController {
         let journey = journeys![indexPath.row] as Journey
         
         cell.textLabel?.text = journey.name
-        cell.detailTextLabel?.text = "0 Coordinates"
+        cell.detailTextLabel?.text = "\(journey.coordinates.count) Coordinates"
         // Configure the cell...
 
         return cell
