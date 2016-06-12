@@ -58,7 +58,17 @@ class MainViewController: UIViewController,
         centerCurrentLocation(location.coordinate)
         
         coordinates.append(location.coordinate)
-        mapView.addAnnotation(currentPolyline())
+        
+        let polyline = currentPolyline()
+        mapView.addAnnotation(polyline)
+        polylines.append(polyline)
+        
+        if polylines.count > 2 {
+            mapView.removeAnnotation(polylines[0])
+            polylines.removeAtIndex(0)
+        }
+    }
+    
     func centerCurrentLocation(currentCoordinate: CLLocationCoordinate2D) {
         guard finishedInitialCamerawork == true else { return }
         
