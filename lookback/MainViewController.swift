@@ -14,6 +14,7 @@ class MainViewController: UIViewController,
                       MGLMapViewDelegate {
     
     @IBOutlet weak var mapView: MGLMapView!
+    
     var coordinates = [CLLocationCoordinate2D]()
     var polylines = [MGLPolyline]()
     
