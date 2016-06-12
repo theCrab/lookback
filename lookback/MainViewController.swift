@@ -34,7 +34,7 @@ class MainViewController: UIViewController,
                 let coordsDict = snapshot.value as! [String: AnyObject]
                 
                 for (_, coord) in coordsDict {
-                    let coordDict = coord as! Dictionary<String, Double>
+                    let coordDict = coord as! [String: Double]
                     
                     let marker = MGLPointAnnotation()
                     marker.coordinate = CLLocationCoordinate2D(latitude: coordDict["latitude"]!, longitude: coordDict["longitude"]!)
