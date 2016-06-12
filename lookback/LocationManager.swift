@@ -15,11 +15,14 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     static let sharedInstance = LocationManager()
     var manager: CLLocationManager!
     
+    var completionHandler: ((location:CLLocation?, error:NSError?)->())?
+    
     override init() {
         super.init()
         
         manager = CLLocationManager()
         manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyBest
     }
     
     func start() {
@@ -42,7 +45,19 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         }
     }
     
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        // Handle location updates
+        for location in locations {
+            completionHandler?(location: location, error: nil)
+        }
+    }
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        completionHandler?(location: nil, error: error)
+    }
+    
     func authorizationSuccess() {
+        manager.startUpdatingLocation()
         NSLog("Already authorized")
     }
     
