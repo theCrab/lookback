@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Lookback-->
@@ -71,11 +72,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="JourneyCell" textLabel="Ubp-89-zbb" detailTextLabel="0Gh-HK-aAR" style="IBUITableViewCellStyleSubtitle" id="gDP-P4-e71">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="JourneyCell" textLabel="Ubp-89-zbb" detailTextLabel="0Gh-HK-aAR" style="IBUITableViewCellStyleSubtitle" id="gDP-P4-e71">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gDP-P4-e71" id="lyv-jO-aQq">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ubp-89-zbb">
@@ -105,18 +106,28 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Osy-8k-SE8">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <action selector="dismissCurrentView" destination="t1I-o8-CA7" id="UqV-He-Zrr"/>
+                                <action selector="dismissCurrentView" destination="t1I-o8-CA7" id="2Ls-sG-d37"/>
+                                <segue destination="c5P-vk-L7l" kind="unwind" unwindAction="cancelChoosingJourney:" id="lvN-qd-0tq"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="EI0-X5-jGE">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="showNewJourneyAlert:" destination="t1I-o8-CA7" id="V49-q3-B6R"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="done" id="vdM-ft-wUO">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <segue destination="c5P-vk-L7l" kind="unwind" unwindAction="chooseCurrentJourney:" id="YGh-ow-qQk"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="add" id="EI0-X5-jGE">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="showNewJourneyAlert:" destination="t1I-o8-CA7" id="V49-q3-B6R"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kBU-BN-0Sc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="c5P-vk-L7l" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2811" y="904"/>
         </scene>

@@ -11,6 +11,9 @@ import RealmSwift
 
 class JourneysViewController: UITableViewController {
     var journeys: Results<Journey>?
+    var selectedTableCellIndex: NSIndexPath?
+    var selectedJourney: Journey?
+    
     let realm = try! Realm()
     
     override func viewDidLoad() {
@@ -51,10 +54,6 @@ class JourneysViewController: UITableViewController {
         
         self.presentViewController(alertController, animated: true, completion: nil)
     }
-    
-    @IBAction func dismissCurrentView() {
-        self.presentingViewController!.dismissViewControllerAnimated(true, completion: nil)
-    }
 
     // MARK: - Table view data source
     
@@ -90,9 +89,20 @@ class JourneysViewController: UITableViewController {
         
         cell.textLabel?.text = journey.name
         cell.detailTextLabel?.text = "\(journey.coordinates.count) Coordinates (\(journey.id))"
-        // Configure the cell...
+        
+        if indexPath == selectedTableCellIndex {
+            cell.accessoryType = UITableViewCellAccessoryType.Checkmark
+        } else {
+            cell.accessoryType = UITableViewCellAccessoryType.None
+        }
 
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        selectedTableCellIndex = indexPath
+        selectedJourney = journeys![indexPath.row]
+        self.tableView.reloadData()
     }
 
     /*
