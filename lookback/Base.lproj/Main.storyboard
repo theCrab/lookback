@@ -110,6 +110,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="EI0-X5-jGE">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="showNewJourneyAlert:" destination="t1I-o8-CA7" id="V49-q3-B6R"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>

@@ -11,12 +11,12 @@ import RealmSwift
 
 class JourneysViewController: UITableViewController {
     var journeys: Results<Journey>?
+    let realm = try! Realm()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         journeys = Journey.all()
-        print(journeys)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -30,12 +30,47 @@ class JourneysViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func showNewJourneyAlert(sender: AnyObject) {
+        let alertController = UIAlertController(title: "Add New Journey", message: "Enter name of the journey below.", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        let createAction = UIAlertAction(title: "Create", style: UIAlertActionStyle.Default, handler: { alert -> Void in
+            let textField = alertController.textFields![0] as UITextField
+            
+            self.createNewJourney(textField.text!)
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: { alert -> Void in
+        })
+        
+        alertController.addTextFieldWithConfigurationHandler({ (textField: UITextField!) -> Void in
+            textField.placeholder = "Enter Journey Name"
+        })
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(createAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
     @IBAction func dismissCurrentView() {
         self.presentingViewController!.dismissViewControllerAnimated(true, completion: nil)
     }
 
     // MARK: - Table view data source
-
+    
+    func createNewJourney(title: String) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            let realm = try! Realm()
+            
+            let journey = Journey(value: [title, List<Coordinate>()])
+            try! realm.write() { realm.add(journey) }
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                [unowned self] in self.tableView.reloadData()
+            })
+        })
+    }
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
