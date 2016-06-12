@@ -25,4 +25,8 @@ class Journey: Object {
     class func all() -> Results<Journey> {
         return realm.objects(Journey.self)
     }
+    
+    class func findById(id: String) -> Journey {
+        return realm.objects(Journey.self).filter("id == %@", id).first!
+    }
 }
