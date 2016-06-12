@@ -10,9 +10,11 @@ import UIKit
 import RealmSwift
 
 class JourneysViewController: UITableViewController {
+    
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
     var journeys: Results<Journey>?
-    var selectedTableCellIndex: NSIndexPath?
-    var selectedJourney: Journey?
+    var selectedTableCellIndex: Int?
     
     let realm = try! Realm()
     
@@ -20,12 +22,11 @@ class JourneysViewController: UITableViewController {
         super.viewDidLoad()
         
         journeys = Journey.all()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        guard defaults.objectForKey("currentJourneyId") != nil else { return }
+        let currentJourney = Journey.findById(defaults.objectForKey("currentJourneyId") as! String)
+        
+        selectedTableCellIndex = journeys?.indexOf(currentJourney)
     }
 
     override func didReceiveMemoryWarning() {
@@ -90,7 +91,7 @@ class JourneysViewController: UITableViewController {
         cell.textLabel?.text = journey.name
         cell.detailTextLabel?.text = "\(journey.coordinates.count) Coordinates (\(journey.id))"
         
-        if indexPath == selectedTableCellIndex {
+        if indexPath.row == selectedTableCellIndex {
             cell.accessoryType = UITableViewCellAccessoryType.Checkmark
         } else {
             cell.accessoryType = UITableViewCellAccessoryType.None
@@ -99,9 +100,12 @@ class JourneysViewController: UITableViewController {
         return cell
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        defaults.setObject(journeys![selectedTableCellIndex!].id, forKey: "currentJourneyId")
+    }
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedTableCellIndex = indexPath
-        selectedJourney = journeys![indexPath.row]
+        selectedTableCellIndex = indexPath.row
         self.tableView.reloadData()
     }
 
