@@ -5,6 +5,8 @@
 lookback/Debug.xcconfig
 lookback/Release.xcconfig
 
+lookback/GoogleService-Info.plist
+
 ## Build generated
 build/
 DerivedData/
